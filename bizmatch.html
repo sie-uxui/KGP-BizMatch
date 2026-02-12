@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BizMatch - Business Listings | Key Global Projects</title>
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="bizmatch.css">
+</head>
+<body>
+    
+    <!-- Header -->
+    <header class="header">
+        <div class="header__top">
+            <div class="container">
+                <div class="header__toparea">
+                    <div class="logo">
+                        <a href="index.html">
+                            <h3>KEY GLOBAL <span>PROJECTS</span></h3>
+                        </a>
+                    </div>
+                    <nav class="nav">
+                        <ul>
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="#" class="active">BizMatch</a></li>
+                            <li><a href="#">Services</a></li>
+                            <li><a href="#">Contact</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <div class="page-header__content">
+                <h6>BUSINESS MARKETPLACE</h6>
+                <h1>BizMatch - Find Your Next Investment</h1>
+                <p>Browse quality Singapore businesses for sale. From established F&B outlets to tech startups ready for acquisition.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <section class="listings-section">
+        <div class="container">
+            <div class="listings-wrapper">
+                
+                <!-- Sidebar Filters -->
+                <aside class="filters-sidebar">
+                    <div class="filters-card">
+                        <h4>Filter Listings</h4>
+                        
+                        <!-- Industry Filter -->
+                        <div class="filter-group">
+                            <label>Industry</label>
+                            <select id="industryFilter" class="filter-select">
+                                <option value="">All Industries</option>
+                                <option value="fnb">F&B / Catering</option>
+                                <option value="retail">Retail</option>
+                                <option value="manufacturing">Manufacturing</option>
+                                <option value="services">Professional Services</option>
+                                <option value="tech">Technology</option>
+                                <option value="automotive">Automotive</option>
+                                <option value="construction">Construction</option>
+                            </select>
+                        </div>
+
+                        <!-- Price Filter -->
+                        <div class="filter-group">
+                            <label>Price Range</label>
+                            <div class="checkbox-group">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" value="0-100k" class="price-filter">
+                                    <span>Under $100K</span>
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" value="100k-500k" class="price-filter">
+                                    <span>$100K - $500K</span>
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" value="500k-1m" class="price-filter">
+                                    <span>$500K - $1M</span>
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" value="1m-5m" class="price-filter">
+                                    <span>$1M - $5M</span>
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" value="5m+" class="price-filter">
+                                    <span>$5M+</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Location Filter -->
+                        <div class="filter-group">
+                            <label>Location</label>
+                            <div class="checkbox-group">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" value="central" class="location-filter">
+                                    <span>Central</span>
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" value="east" class="location-filter">
+                                    <span>East</span>
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" value="west" class="location-filter">
+                                    <span>West</span>
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" value="north" class="location-filter">
+                                    <span>North</span>
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" value="south" class="location-filter">
+                                    <span>South</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Reset Button -->
+                        <button class="btn-reset" id="resetFilters">
+                            <i class="fas fa-redo"></i> Reset Filters
+                        </button>
+                    </div>
+                </aside>
+
+                <!-- Listings Area -->
+                <div class="listings-area">
+                    
+                    <!-- Top Bar -->
+                    <div class="listings-topbar">
+                        <div class="results-count">
+                            <span id="resultsCount">12</span> businesses found
+                        </div>
+                        <div class="sort-controls">
+                            <label>Sort by:</label>
+                            <select id="sortSelect" class="sort-select">
+                                <option value="featured">Featured</option>
+                                <option value="price-low">Price: Low to High</option>
+                                <option value="price-high">Price: High to Low</option>
+                                <option value="newest">Newest First</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Listings Grid -->
+                    <div class="listings-grid" id="listingsGrid">
+                        
+                        <!-- Listing Card 1 -->
+                        <div class="listing-card" data-industry="fnb" data-price="850000" data-location="central">
+                            <div class="listing-card__image">
+                                <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=600&h=400&fit=crop" alt="Restaurant">
+                                <span class="badge badge-featured">Featured</span>
+                            </div>
+                            <div class="listing-card__content">
+                                <div class="listing-card__header">
+                                    <h3>Established Italian Restaurant</h3>
+                                    <span class="tag">F&B</span>
+                                </div>
+                                <div class="listing-card__meta">
+                                    <span><i class="fas fa-map-marker-alt"></i> Central, Singapore</span>
+                                    <span><i class="fas fa-calendar"></i> Est. 2015</span>
+                                </div>
+                                <p class="listing-card__description">
+                                    Prime location Italian restaurant with loyal customer base. Fully equipped kitchen, 60 seats, strong brand presence.
+                                </p>
+                                <div class="listing-card__footer">
+                                    <div class="price">$850,000</div>
+                                    <button class="btn-primary" onclick="openInterestModal('Established Italian Restaurant')">
+                                        I'm Interested
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Listing Card 2 -->
+                        <div class="listing-card" data-industry="retail" data-price="320000" data-location="east">
+                            <div class="listing-card__image">
+                                <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=600&h=400&fit=crop" alt="Retail">
+                            </div>
+                            <div class="listing-card__content">
+                                <div class="listing-card__header">
+                                    <h3>Fashion Boutique Chain</h3>
+                                    <span class="tag">Retail</span>
+                                </div>
+                                <div class="listing-card__meta">
+                                    <span><i class="fas fa-map-marker-alt"></i> East, Singapore</span>
+                                    <span><i class="fas fa-calendar"></i> Est. 2018</span>
+                                </div>
+                                <p class="listing-card__description">
+                                    Three locations across Singapore. Strong online presence, established supplier relationships, ready to scale.
+                                </p>
+                                <div class="listing-card__footer">
+                                    <div class="price">$320,000</div>
+                                    <button class="btn-primary" onclick="openInterestModal('Fashion Boutique Chain')">
+                                        I'm Interested
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Listing Card 3 -->
+                        <div class="listing-card" data-industry="tech" data-price="1500000" data-location="central">
+                            <div class="listing-card__image">
+                                <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop" alt="Tech">
+                                <span class="badge badge-hot">Hot Deal</span>
+                            </div>
+                            <div class="listing-card__content">
+                                <div class="listing-card__header">
+                                    <h3>SaaS Platform - HR Tech</h3>
+                                    <span class="tag">Technology</span>
+                                </div>
+                                <div class="listing-card__meta">
+                                    <span><i class="fas fa-map-marker-alt"></i> Central, Singapore</span>
+                                    <span><i class="fas fa-calendar"></i> Est. 2020</span>
+                                </div>
+                                <p class="listing-card__description">
+                                    Profitable HR management SaaS with 200+ corporate clients. Recurring revenue, strong tech stack, growth potential.
+                                </p>
+                                <div class="listing-card__footer">
+                                    <div class="price">$1,500,000</div>
+                                    <button class="btn-primary" onclick="openInterestModal('SaaS Platform - HR Tech')">
+                                        I'm Interested
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Listing Card 4 -->
+                        <div class="listing-card" data-industry="automotive" data-price="680000" data-location="west">
+                            <div class="listing-card__image">
+                                <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=600&h=400&fit=crop" alt="Automotive">
+                            </div>
+                            <div class="listing-card__content">
+                                <div class="listing-card__header">
+                                    <h3>Auto Parts Supply Business</h3>
+                                    <span class="tag">Automotive</span>
+                                </div>
+                                <div class="listing-card__meta">
+                                    <span><i class="fas fa-map-marker-alt"></i> West, Singapore</span>
+                                    <span><i class="fas fa-calendar"></i> Est. 2012</span>
+                                </div>
+                                <p class="listing-card__description">
+                                    Established supplier to workshops and dealerships. Strong inventory system, loyal B2B customers.
+                                </p>
+                                <div class="listing-card__footer">
+                                    <div class="price">$680,000</div>
+                                    <button class="btn-primary" onclick="openInterestModal('Auto Parts Supply Business')">
+                                        I'm Interested
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Listing Card 5 -->
+                        <div class="listing-card" data-industry="fnb" data-price="250000" data-location="north">
+                            <div class="listing-card__image">
+                                <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=600&h=400&fit=crop" alt="Cafe">
+                            </div>
+                            <div class="listing-card__content">
+                                <div class="listing-card__header">
+                                    <h3>Specialty Coffee Cafe</h3>
+                                    <span class="tag">F&B</span>
+                                </div>
+                                <div class="listing-card__meta">
+                                    <span><i class="fas fa-map-marker-alt"></i> North, Singapore</span>
+                                    <span><i class="fas fa-calendar"></i> Est. 2019</span>
+                                </div>
+                                <p class="listing-card__description">
+                                    Instagram-worthy cafe with strong social media presence. Turnkey operation, trained staff, growth ready.
+                                </p>
+                                <div class="listing-card__footer">
+                                    <div class="price">$250,000</div>
+                                    <button class="btn-primary" onclick="openInterestModal('Specialty Coffee Cafe')">
+                                        I'm Interested
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Listing Card 6 -->
+                        <div class="listing-card" data-industry="manufacturing" data-price="2800000" data-location="west">
+                            <div class="listing-card__image">
+                                <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=600&h=400&fit=crop" alt="Manufacturing">
+                                <span class="badge badge-featured">Featured</span>
+                            </div>
+                            <div class="listing-card__content">
+                                <div class="listing-card__header">
+                                    <h3>Electronics Manufacturing</h3>
+                                    <span class="tag">Manufacturing</span>
+                                </div>
+                                <div class="listing-card__meta">
+                                    <span><i class="fas fa-map-marker-alt"></i> West, Singapore</span>
+                                    <span><i class="fas fa-calendar"></i> Est. 2010</span>
+                                </div>
+                                <p class="listing-card__description">
+                                    ISO certified facility producing consumer electronics. Contracts with major brands, modern equipment.
+                                </p>
+                                <div class="listing-card__footer">
+                                    <div class="price">$2,800,000</div>
+                                    <button class="btn-primary" onclick="openInterestModal('Electronics Manufacturing')">
+                                        I'm Interested
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Listing Card 7 -->
+                        <div class="listing-card" data-industry="services" data-price="420000" data-location="central">
+                            <div class="listing-card__image">
+                                <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600&h=400&fit=crop" alt="Services">
+                            </div>
+                            <div class="listing-card__content">
+                                <div class="listing-card__header">
+                                    <h3>Accounting Firm</h3>
+                                    <span class="tag">Services</span>
+                                </div>
+                                <div class="listing-card__meta">
+                                    <span><i class="fas fa-map-marker-alt"></i> Central, Singapore</span>
+                                    <span><i class="fas fa-calendar"></i> Est. 2016</span>
+                                </div>
+                                <p class="listing-card__description">
+                                    Well-established practice with 80+ SME clients. Recurring revenue model, experienced team in place.
+                                </p>
+                                <div class="listing-card__footer">
+                                    <div class="price">$420,000</div>
+                                    <button class="btn-primary" onclick="openInterestModal('Accounting Firm')">
+                                        I'm Interested
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Listing Card 8 -->
+                        <div class="listing-card" data-industry="construction" data-price="1200000" data-location="south">
+                            <div class="listing-card__image">
+                                <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=600&h=400&fit=crop" alt="Construction">
+                            </div>
+                            <div class="listing-card__content">
+                                <div class="listing-card__header">
+                                    <h3>Construction & Contracting</h3>
+                                    <span class="tag">Construction</span>
+                                </div>
+                                <div class="listing-card__meta">
+                                    <span><i class="fas fa-map-marker-alt"></i> South, Singapore</span>
+                                    <span><i class="fas fa-calendar"></i> Est. 2013</span>
+                                </div>
+                                <p class="listing-card__description">
+                                    BCA licensed contractor with strong project pipeline. Skilled workforce, modern equipment, HDB approved.
+                                </p>
+                                <div class="listing-card__footer">
+                                    <div class="price">$1,200,000</div>
+                                    <button class="btn-primary" onclick="openInterestModal('Construction & Contracting')">
+                                        I'm Interested
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Listing Card 9 -->
+                        <div class="listing-card" data-industry="retail" data-price="180000" data-location="east">
+                            <div class="listing-card__image">
+                                <img src="https://images.unsplash.com/photo-1534452203293-494d7ddbf7e0?w=600&h=400&fit=crop" alt="Beauty">
+                            </div>
+                            <div class="listing-card__content">
+                                <div class="listing-card__header">
+                                    <h3>Beauty & Wellness Spa</h3>
+                                    <span class="tag">Retail</span>
+                                </div>
+                                <div class="listing-card__meta">
+                                    <span><i class="fas fa-map-marker-alt"></i> East, Singapore</span>
+                                    <span><i class="fas fa-calendar"></i> Est. 2017</span>
+                                </div>
+                                <p class="listing-card__description">
+                                    Premium spa with membership base. Strategic location, modern facilities, high customer retention.
+                                </p>
+                                <div class="listing-card__footer">
+                                    <div class="price">$180,000</div>
+                                    <button class="btn-primary" onclick="openInterestModal('Beauty & Wellness Spa')">
+                                        I'm Interested
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Listing Card 10 -->
+                        <div class="listing-card" data-industry="fnb" data-price="540000" data-location="central">
+                            <div class="listing-card__image">
+                                <img src="https://images.unsplash.com/photo-1564758866272-e2c4f24c388d?w=600&h=400&fit=crop" alt="Bar">
+                                <span class="badge badge-hot">Hot Deal</span>
+                            </div>
+                            <div class="listing-card__content">
+                                <div class="listing-card__header">
+                                    <h3>Craft Beer Bar & Taproom</h3>
+                                    <span class="tag">F&B</span>
+                                </div>
+                                <div class="listing-card__meta">
+                                    <span><i class="fas fa-map-marker-alt"></i> Central, Singapore</span>
+                                    <span><i class="fas fa-calendar"></i> Est. 2018</span>
+                                </div>
+                                <p class="listing-card__description">
+                                    Trendy location with high foot traffic. Strong branding, loyal following, event hosting capability.
+                                </p>
+                                <div class="listing-card__footer">
+                                    <div class="price">$540,000</div>
+                                    <button class="btn-primary" onclick="openInterestModal('Craft Beer Bar & Taproom')">
+                                        I'm Interested
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Listing Card 11 -->
+                        <div class="listing-card" data-industry="tech" data-price="95000" data-location="central">
+                            <div class="listing-card__image">
+                                <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?w=600&h=400&fit=crop" alt="Digital Agency">
+                            </div>
+                            <div class="listing-card__content">
+                                <div class="listing-card__header">
+                                    <h3>Digital Marketing Agency</h3>
+                                    <span class="tag">Technology</span>
+                                </div>
+                                <div class="listing-card__meta">
+                                    <span><i class="fas fa-map-marker-alt"></i> Central, Singapore</span>
+                                    <span><i class="fas fa-calendar"></i> Est. 2021</span>
+                                </div>
+                                <p class="listing-card__description">
+                                    Fast-growing agency with 25+ active clients. Remote-capable team, proven processes, recurring contracts.
+                                </p>
+                                <div class="listing-card__footer">
+                                    <div class="price">$95,000</div>
+                                    <button class="btn-primary" onclick="openInterestModal('Digital Marketing Agency')">
+                                        I'm Interested
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Listing Card 12 -->
+                        <div class="listing-card" data-industry="services" data-price="3500000" data-location="central">
+                            <div class="listing-card__image">
+                                <img src="https://images.unsplash.com/photo-1560179707-f14e90ef3623?w=600&h=400&fit=crop" alt="Medical">
+                                <span class="badge badge-featured">Featured</span>
+                            </div>
+                            <div class="listing-card__content">
+                                <div class="listing-card__header">
+                                    <h3>Medical Clinic Chain</h3>
+                                    <span class="tag">Services</span>
+                                </div>
+                                <div class="listing-card__meta">
+                                    <span><i class="fas fa-map-marker-alt"></i> Central, Singapore</span>
+                                    <span><i class="fas fa-calendar"></i> Est. 2014</span>
+                                </div>
+                                <p class="listing-card__description">
+                                    Four clinic locations with panel agreements. Experienced doctors, modern facilities, strong financials.
+                                </p>
+                                <div class="listing-card__footer">
+                                    <div class="price">$3,500,000</div>
+                                    <button class="btn-primary" onclick="openInterestModal('Medical Clinic Chain')">
+                                        I'm Interested
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- Pagination -->
+                    <div class="pagination">
+                        <button class="pagination-btn" disabled>
+                            <i class="fas fa-chevron-left"></i>
+                        </button>
+                        <button class="pagination-btn active">1</button>
+                        <button class="pagination-btn">2</button>
+                        <button class="pagination-btn">3</button>
+                        <button class="pagination-btn">
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Interest Modal -->
+    <div class="modal" id="interestModal">
+        <div class="modal-overlay" onclick="closeInterestModal()"></div>
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeInterestModal()">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="modal-header">
+                <i class="fas fa-handshake"></i>
+                <h2>Express Your Interest</h2>
+                <p id="modalBusinessName">Business Name</p>
+            </div>
+            <form class="interest-form" onsubmit="submitInterest(event)">
+                <div class="form-group">
+                    <label>Your Name *</label>
+                    <input type="text" required placeholder="John Tan">
+                </div>
+                <div class="form-group">
+                    <label>Email Address *</label>
+                    <input type="email" required placeholder="john@example.com">
+                </div>
+                <div class="form-group">
+                    <label>Phone Number</label>
+                    <input type="tel" placeholder="+65 9123 4567">
+                </div>
+                <div class="form-group">
+                    <label>Company Name</label>
+                    <input type="text" placeholder="Your Company Pte Ltd">
+                </div>
+                <div class="form-group">
+                    <label>Message (Optional)</label>
+                    <textarea rows="4" placeholder="Tell us about your interest and any questions you have..."></textarea>
+                </div>
+                <button type="submit" class="btn-submit">
+                    <i class="fas fa-paper-plane"></i> Submit Interest
+                </button>
+                <p class="form-note">
+                    <i class="fas fa-shield-alt"></i> Your information is confidential. A Key Global Projects consultant will contact you within 24 hours.
+                </p>
+            </form>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>KEY GLOBAL <span>PROJECTS</span></h4>
+                    <p>Your trusted partner in M&A advisory and IPO consulting. Transforming Singapore businesses for global markets.</p>
+                </div>
+                <div class="footer-section">
+                    <h5>Quick Links</h5>
+                    <ul>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Services</a></li>
+                        <li><a href="#">Success Stories</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h5>Contact</h5>
+                    <p><i class="fas fa-phone"></i> +65 1234 5678</p>
+                    <p><i class="fas fa-envelope"></i> info@keyglobal.com</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Singapore</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Key Global Projects. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="bizmatch.js"></script>
+</body>
+</html>
